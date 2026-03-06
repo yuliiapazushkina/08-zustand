@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useDebounce } from 'use-debounce';
 import Link from 'next/link';
 
 import { fetchNotes, FetchNotesResponse } from '@/lib/api';
@@ -22,31 +23,25 @@ export default function NotesClient({ initialTag }: NotesClientProps) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setPage(1);
-      setSearch('');
-    }, 0);
-
-    return () => clearTimeout(timeout);
-  }, [initialTag]);
+  const [debouncedSearch] = useDebounce(search, 500);
 
   const activeTag = VALID_TAGS.includes(initialTag) ? initialTag : '';
 
   const { data, isLoading, isError, isFetching } = useQuery<FetchNotesResponse>({
-    queryKey: ['notes', activeTag, page, search],
+    queryKey: ['notes', activeTag, page, debouncedSearch],
     queryFn: () =>
       fetchNotes({
         tag: activeTag,
         page,
         perPage,
-        search,
+        search: debouncedSearch,
       }),
     staleTime: 1000 * 60,
   });
 
   const handlePageChange = (newPage: number) => {
     if (!data) return;
+
     if (newPage >= 1 && newPage <= data.totalPages) {
       setPage(newPage);
     }
@@ -81,7 +76,9 @@ export default function NotesClient({ initialTag }: NotesClientProps) {
       )}
 
       {!isLoading && !isError && data && data.notes.length === 0 && (
-        <EmptyState message={search ? 'No notes match your search' : 'No notes in this category'} />
+        <EmptyState
+          message={debouncedSearch ? 'No notes match your search' : 'No notes in this category'}
+        />
       )}
     </div>
   );
