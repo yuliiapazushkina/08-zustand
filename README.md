@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🐻 Zustand State Management App
 
-## Getting Started
+## 📌 Project Overview
 
-First, run the development server:
+Zustand State Management App is a React application that demonstrates how to manage global state using the Zustand library.
 
-```bash
+The project focuses on implementing a simple, scalable, and modern state management solution without the complexity of Redux. Zustand allows developers to create a global store and access it from any component using hooks.
+
+This project was created as part of frontend training to practice React architecture, global state management, and modern development workflows.
+
+## 🚀 Live Demo
+
+🔗 Live Demo:
+https://yuliiapazushkina.github.io/08-zustand/
+
+🔗 GitHub Repository:
+https://github.com/yuliiapazushkina/08-zustand
+
+## 🛠 Tech Stack
+
+- Frontend
+- React
+- JavaScript (ES6+)
+- State Management
+- Zustand
+- Development Tools
+- Vite
+- Git
+- GitHub
+- Deployment
+
+## ⚙️ Key Features
+
+✔ Global state management using Zustand
+✔ Simple and scalable store architecture
+✔ Efficient component re-rendering
+✔ Clean and modular project structure
+✔ Modern React development approach using hooks
+✔ Lightweight alternative to Redux
+
+## 📂 Project Structure
+src
+ ├── components
+ │    └── (UI components)
+ │
+ ├── store
+ │    └── store.js
+ │
+ ├── App.jsx
+ ├── main.jsx
+ └── styles.css
+
+The project separates UI components from the global state store, making the codebase easier to scale and maintain.
+
+## 💻 Getting Started
+1️⃣ Clone the repository
+git clone https://github.com/yuliiapazushkina/08-zustand.git
+2️⃣ Navigate to the project folder
+cd 08-zustand
+3️⃣ Install dependencies
+npm install
+4️⃣ Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Vercel: https://08-zustand-ho4eamese-julies-projects-c602e852.vercel.app/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Learning Goals
 
-## Learn More
+This project helped practice:
 
-To learn more about Next.js, take a look at the following resources:
+- Global state management in React
+- Using Zustand store
+- Component architecture
+- React hooks
+- Code organization
+- Deployment with Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👩‍💻 Author
+## Yuliia Pazushkina
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+GitHub: https://github.com/yuliiapazushkina
+LinkedIn: https://www.linkedin.com/in/yuliia-pazushkina/
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
